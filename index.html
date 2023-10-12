@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css" type="text/css">
+    <title>Hello, world!</title>
+  </head>
+  <body >
+    <header>
+         
+    </header>
+
+    <section class="bmi-calculator-section" >
+        <div class="container">
+            <div class="row">
+                 <h1 class="heading">
+                    BMI Calculator
+                 </h1>
+                 <div class="user-input" id="userInput">
+                    <form action="">
+                        <div class="error">
+                            
+                               <label for="" style="color: red;"><?xml version="1.0" encoding="iso-8859-1"?>
+                                <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                                <svg  width="20px" height="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                                     viewBox="0 0 512 512" xml:space="preserve">
+                                <polygon style="fill:#FFA418;" points="0,477.703 256,477.703 289.391,256 256,34.297 "/>
+                                <polygon style="fill:#FF8A1E;" points="256,34.297 256,477.703 512,477.703 "/>
+                                <g>
+                                    <circle style="fill:#324860;" cx="256" cy="405.359" r="16.696"/>
+                                    <rect x="239.304" y="177.185" style="fill:#324860;" width="33.391" height="178.087"/>
+                                </g>
+                                </svg> Fill all input box
+                            </label>
+                        </div>
+                        
+                        <div class="input-div">
+                            <label for="#age">Age:</label>
+                            <div class="age-input">
+                            <input  type="number" name="age" id="age" min="2" max="120">
+                        </div>
+                        </div>
+                        <div class="input-div">
+                            <label>Gender</label>
+
+                             <input type="radio" id="male" value="male" name="gender" aria-selected="true">
+                             <label for="#male">Male</label>
+
+                             <input type="radio" id="female" value="female" name="gender">
+                             <label for="#female">Female</label>
+
+                        </div>
+                        <div class="input-div">
+                            <label for>Height</label>
+                            <div class="height-input">
+                                <input type="number" id="height" name="height">
+                                <h6>cm</h6>   
+                           </div>
+                        </div>
+                        <div class="input-div">
+                            <label for>Weight</label>
+                                <div class="weight-input">
+                                <input type="number" id="weight" name="weight">
+                            <h6>kg</h6>      
+                        </div>
+
+                        </div>
+                        <div class="bmi-btn">
+                        <button class="btn btn-success" type="button">Find Result</button>
+                        <button class="btn btn-info" type="button">Clear</button>
+                    </div>
+
+                    </form>
+                   
+                 </div>
+                 <div class="result" id="result">
+                    <div class="result-heading">Result</div>
+                    <div class="result-value-state">
+                        <div class="value">BMI = 21.3 kg/m2</div>
+                        <div class="state" id="state">(_______)</div>
+
+                    </div>
+
+                    <div class="body-current-stat">
+                        <h4>Total Energy: <span class="total-energy"> </span><span>kcal</span></h4>
+                        <h4>Carbohydrate:<span class="carbohydrate"> </span><span>gram</span></h4>
+                        <h4>protein : <span class="protein"> </span><span>%</span></h4>
+                        <h4>Fat:<span class="fat"> </span><span>gram</span></h4>
+
+                    </div>
+                    <div class="result-pie">
+                        <img src="pie-ok.png" alt="">
+                        <img class="arrow" src="pie-arrow.png" alt="">
+                    </div>
+                    
+                 </div>
+                 <div class="body-result">
+                    <div class="body">
+                        <img src="body/body1-removebg-preview.png" class="body-img">
+                    </div>
+                    <div class="instruction">
+                        <ul class="body-instruction">
+                           
+
+                        </ul>
+                    </div>
+                 </div> 
+            </div>
+
+        </div>
+    </section>
+    <script src="script.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>  
+</body>
+</html>
