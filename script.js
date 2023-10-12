@@ -18,15 +18,19 @@ document.addEventListener("DOMContentLoaded", function() {
           const clear =document.querySelector(".btn-info")
           // const weightinput=document.getElementById("weight")
           // const heightinput=document.getElementById("height")
-          const state = document.getElementById("state")
+          const bmi_state = document.getElementById("bmi")
           const error = document.querySelector(".error")
-          const bmi_value = document.querySelector(".result-value-state .value")
+          const bmi_value = document.querySelector(".result-value-state .bmi")
+          const ideal_body_value = document.querySelector(".result-value-state .idealbody")
           const bodyimg = document.querySelector(".body-img")
           const body_result = document.querySelector(".body-result")
           const result = document.querySelector(".result")
           const user_input = document.querySelector(".user-input")
+          const bmi_div = document.querySelector(".result-value-state .bmi-div")
+          const ideal_div = document.querySelector(".result-value-state .ideal-div")
+
           body_result.style.display="none"
-          state.innerHTML=""
+          bmi_state.innerHTML=""
           bmi_value.innerHTML=``
           body_list = document.querySelector(".body-instruction")
           const body_current_stat = document.querySelector('.result .body-current-stat')
@@ -85,7 +89,8 @@ document.addEventListener("DOMContentLoaded", function() {
               const carbohydate_tag = document.querySelector('.result .body-current-stat .carbohydrate')
               const protein_tag = document.querySelector('.result .body-current-stat .protein')
               const fat_tag = document.querySelector('.result .body-current-stat .fat')
-              
+              const initialX1 = -window.innerWidth;
+              const initialX2 = window.innerWidth;
 
               // console.log(weightInput,heightInput);
   
@@ -110,28 +115,32 @@ document.addEventListener("DOMContentLoaded", function() {
               error.style.display="none"
               const heightinm = height/100
               const bmi = (weight/(heightinm*heightinm)).toFixed(2);
-              console.log(weight+"  " +height+'  ' + bmi);
+              
+
+        // TweenMax animation
+             gsap.from(bmi_div, { duration: 1, x: initialX1, ease: "power2.out" });
+       
               bmi_value.innerHTML=`BMI = ${bmi} kg/m2`
+
               const rotatedeg = ((bmi - 13) / (40 - 10) * 180)
               
               const idealbody=(height-152)/2.5
-              console.log(idealbody,genderSelected);
               let bmr;
               let idealbodyweight;
               if (genderSelected=='male'){
                  idealbodyweight = (106+(6*idealbody))/2.2
                  bmr = 655+ (9.5* weight) + (1.8* height)-(4.6*age)
                
-                 console.log("ideal body weight:",idealbodyweight,"bmr:",bmr,'for male');
 
               }
                 if (genderSelected=='female'){
                   idealbodyweight = (100+(5*idealbody))/2.2
                   bmr = 66.5+ (13.7* weight) + (5* height)-(6.76*age)
 
-                  console.log("ideal body weight:",idealbodyweight,"bmr:",bmr,'for female');
                
                 }
+                gsap.from(ideal_div, { duration: 1, x: initialX2, ease: "power2.out" });
+                ideal_body_value.innerHTML=`Ideal body weight = ${idealbodyweight.toFixed(2)} kg`
                 const totalenery=(bmr*1.375)
                 const carbohydrate =(((65/100)*totalenery)/4)
                 const protein = ((((1*idealbodyweight)*4)/totalenery)*100)
@@ -166,8 +175,8 @@ document.addEventListener("DOMContentLoaded", function() {
   
               }
               if (bmi<16){
-                  state.style.color="red"
-                  state.innerHTML="(Severe Thinness)"
+                  bmi_state.style.color="red"
+                  bmi_state.innerHTML="(Severe Thinness)"
                   bodyimg.src="body/original/body5.png"
                   points[0].forEach((value,index)=>{
                     const newItem = document.createElement("li");
@@ -180,8 +189,8 @@ document.addEventListener("DOMContentLoaded", function() {
   
               }
               else if(bmi<17){
-                state.style.color="#e06969"
-                  state.innerHTML="(Moderate Thinness)"
+                bmi_state.style.color="#e06969"
+                  bmi_state.innerHTML="(Moderate Thinness)"
                   bodyimg.src="body/original/body5.png"
                   points[0].forEach((value,index)=>{
                     const newItem = document.createElement("li");
@@ -194,8 +203,8 @@ document.addEventListener("DOMContentLoaded", function() {
   
               }
               else if(bmi<18.5){
-                state.style.color="#bfc219"
-                state.innerHTML="(Mild Thinness)"
+                bmi_state.style.color="#bfc219"
+                bmi_state.innerHTML="(Mild Thinness)"
                 bodyimg.src="body/original/body5.png"
                 points[0].forEach((value,index)=>{
                   const newItem = document.createElement("li");
@@ -209,9 +218,9 @@ document.addEventListener("DOMContentLoaded", function() {
   
               }
               else if(bmi<25){
-                state.style.color="#67c920"
+                bmi_state.style.color="#67c920"
 
-                  state.innerHTML="(Normal)"
+                  bmi_state.innerHTML="(Normal)"
                   bodyimg.src="body/original/body4.png"
                   points[1].forEach((value,index)=>{
                     const newItem = document.createElement("li");
@@ -225,9 +234,9 @@ document.addEventListener("DOMContentLoaded", function() {
   
               }
               else if(bmi<30){
-                state.style.color="#bfc219"
+                bmi_state.style.color="#bfc219"
 
-                  state.innerHTML="(Overweight)"
+                  bmi_state.innerHTML="(Overweight)"
                   bodyimg.src="body/original/body3.png"
                   points[2].forEach((value,index)=>{
                     const newItem = document.createElement("li");
@@ -240,9 +249,9 @@ document.addEventListener("DOMContentLoaded", function() {
   
               }
               else if(bmi<35){
-                  state.style.color="#ed4a4a"
+                  bmi_state.style.color="#ed4a4a"
 
-                  state.innerHTML="(Obese Class I)"
+                  bmi_state.innerHTML="(Obese Class I)"
                   bodyimg.src="body/original/body2.png"
                   points[3].forEach((value,index)=>{
                     const newItem = document.createElement("li");
@@ -256,9 +265,9 @@ document.addEventListener("DOMContentLoaded", function() {
   
               }
               else if(bmi<40){
-                state.style.color="#c73030"
+                bmi_state.style.color="#c73030"
 
-                  state.innerHTML="(Obese Class II)"
+                  bmi_state.innerHTML="(Obese Class II)"
                   bodyimg.src="body/original/body1.png"
                   points[4].forEach((value,index)=>{
                     const newItem = document.createElement("li");
@@ -271,9 +280,9 @@ document.addEventListener("DOMContentLoaded", function() {
   
               }
               else{
-                state.style.color="red"
+                bmi_state.style.color="red"
                   
-                  state.innerHTML="(Obese Class III)"
+                  bmi_state.innerHTML="(Obese Class III)"
                   bodyimg.src="body/original/body1.png"
                   points[4].forEach((value,index)=>{
                     const newItem = document.createElement("li");
@@ -316,7 +325,7 @@ document.addEventListener("DOMContentLoaded", function() {
               arrow.style.transform = `rotate(-7deg)`;
               bmi_value.innerHTML=``
   
-              state.innerHTML=""
+              bmi_state.innerHTML=""
             //   body_result.style.display="none"
   
   

@@ -1,11 +1,27 @@
 body{
     background-color: #1B1B1B;
-    padding-bottom: 50px;
+    
 }
 header{
     height: 90px;
     background-color:  #0B0B0B;
 }
+footer {
+    background-color: #243a43;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+footer p {
+    font-size: 18px;
+    margin: 0;
+}
+
+
+
+
 .bmi-calculator-section .row{
     padding-top: 30px;
     display: flex;
@@ -126,12 +142,20 @@ header{
 }
 
 .bmi-calculator-section .result .result-value-state{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    
+    font-family: cursive;
+    font-size: 18px;
+    padding-bottom: 20px;
+}
+.bmi-calculator-section .result .result-value-state div{
     display: flex;
     gap: 20px;
     font-family: cursive;
     font-size: 18px;
 }
-
 .bmi-calculator-section .result .result-pie img:first-child{
     width: 100%;
     max-width: 680px;
@@ -214,7 +238,7 @@ font-size: larger;
     scale: 0;
     opacity: 0;
     font-family: Georgia, serif;
-    font-size: 23px;
+    font-size: 25px;
     letter-spacing: 2px;
     word-spacing: 2px;
     color: aqua;
@@ -228,6 +252,14 @@ font-size: larger;
 .bmi-calculator-section .result .body-current-stat h4 span:last-child{
     font-size: 17px;
     color: rgb(151, 156, 159);
+    
+}
+@media (max-width:770px) {
+    .bmi-calculator-section .result .result-value-state{
+        grid-template-columns: 1fr ;
+        row-gap: 20px;
+       
+    }
     
 }
 @media (max-width:1000px){
